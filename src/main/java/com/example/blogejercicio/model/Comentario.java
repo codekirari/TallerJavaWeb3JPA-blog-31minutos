@@ -1,6 +1,5 @@
 package com.example.blogejercicio.model;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -14,28 +13,27 @@ public class Comentario {
     private Long id_Comentario;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String texto;
+    private String text;
 
-    private LocalDateTime fechaCreacion = LocalDateTime.now();
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
 
     @ManyToOne
     @JoinColumn(name = "id_posteo")
     @JsonBackReference
     private Posteo posteo;
 
-    public Comentario(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+
+    public Comentario() {
+        this.createdAt = LocalDateTime.now();
     }
 
-    public Comentario(){
 
-    }
-
-    public Comentario(Long id_Comentario, String texto, LocalDateTime fechaCreacion, Posteo posteo) {
+    public Comentario(Long id_Comentario, String text, Posteo posteo) {
         this.id_Comentario = id_Comentario;
-        this.texto = texto;
-        this.fechaCreacion = fechaCreacion;
+        this.text = text;
         this.posteo = posteo;
+        this.createdAt = LocalDateTime.now();
     }
 
     public Long getId_Comentario() {
@@ -46,20 +44,20 @@ public class Comentario {
         this.id_Comentario = id_Comentario;
     }
 
-    public String getTexto() {
-        return texto;
+    public String getText() {
+        return text;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Posteo getPosteo() {

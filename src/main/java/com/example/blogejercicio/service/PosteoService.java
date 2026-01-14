@@ -3,7 +3,6 @@ package com.example.blogejercicio.service;
 import com.example.blogejercicio.model.Posteo;
 import com.example.blogejercicio.repository.IposteoRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired; // Importante para que funcione
 import org.springframework.stereotype.Service;
 
 import java.util.List;
