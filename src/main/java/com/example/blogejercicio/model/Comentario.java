@@ -23,6 +23,14 @@ public class Comentario {
     @JsonBackReference
     private Posteo posteo;
 
+    public Comentario(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Comentario(){
+
+    }
+
     public Comentario(Long id_Comentario, String texto, LocalDateTime fechaCreacion, Posteo posteo) {
         this.id_Comentario = id_Comentario;
         this.texto = texto;
