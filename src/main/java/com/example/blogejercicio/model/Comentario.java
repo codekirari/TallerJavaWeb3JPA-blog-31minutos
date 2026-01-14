@@ -23,15 +23,11 @@ public class Comentario {
     @JsonBackReference
     private Posteo posteo;
 
-    public Comentario() {}
-
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
+    public Comentario(Long id_Comentario, String texto, LocalDateTime fechaCreacion, Posteo posteo) {
+        this.id_Comentario = id_Comentario;
         this.texto = texto;
+        this.fechaCreacion = fechaCreacion;
+        this.posteo = posteo;
     }
 
     public Long getId_Comentario() {
@@ -40,6 +36,14 @@ public class Comentario {
 
     public void setId_Comentario(Long id_Comentario) {
         this.id_Comentario = id_Comentario;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 
     public LocalDateTime getFechaCreacion() {
