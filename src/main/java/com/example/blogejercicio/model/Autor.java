@@ -20,13 +20,12 @@ public class Autor {
     @Column(nullable = false, unique = true)
     private String email;
 
-    // Relación: Un autor tiene muchos posteos
-    // mappedBy apunta al nombre del atributo en la clase Posteo
+
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Posteo> posteos = new ArrayList<>();
 
-    // Constructor vacío (obligatorio para JPA)
+
     public Autor() {
     }
 
