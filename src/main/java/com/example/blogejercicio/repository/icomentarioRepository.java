@@ -1,4 +1,7 @@
 package com.example.blogejercicio.repository;
 
-public interface icomentarioRepository {
+import com.example.blogejercicio.model.Comentario;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface icomentarioRepository extends JpaRepository<Comentario, Long> {
 }
